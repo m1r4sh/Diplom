@@ -10,8 +10,8 @@
 
 ## Використані технології
 
-* HTML5
-* CSS3
-* JavaScript
+* React(Next.js)
+* Firebase
+* Tailwind CSS
 
 ## Опублікований продукт
