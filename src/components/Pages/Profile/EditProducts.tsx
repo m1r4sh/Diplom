@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { collection, getDocs, doc, updateDoc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  doc,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore";
 import { db } from "@/utils/firebase/config";
 import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { MdDeleteForever } from "react-icons/md";
 
 interface Product {
   id: string;
@@ -133,6 +140,36 @@ const EditProducts = () => {
     }
   };
 
+  const handleDeleteProduct = async () => {
+    if (selectedProduct) {
+      try {
+        const productRef = doc(
+          db,
+          `categories/${selectedProduct.categoryId}/products`,
+          selectedProduct.id
+        );
+        await deleteDoc(productRef);
+        setCategories((prevCategories) =>
+          prevCategories.map((category) =>
+            category.id === selectedProduct.categoryId
+              ? {
+                  ...category,
+                  products: category.products.filter(
+                    (product) => product.id !== selectedProduct.id
+                  ),
+                }
+              : category
+          )
+        );
+        setSelectedProduct(null);
+        toast.success("Product deleted successfully!");
+      } catch (error) {
+        console.error("Error deleting product: ", error);
+        toast.error("Failed to delete product. Please try again.");
+      }
+    }
+  };
+
   return (
     <div className="container mx-auto p-8 bg-[#f0f4f8] min-h-screen">
       <ToastContainer />
@@ -189,6 +226,14 @@ const EditProducts = () => {
                         </p>
                         <p className="text-[#666666]">${product.price}</p>
                       </div>
+                      {selectedProduct?.id === product.id && (
+                        <button
+                          onClick={handleDeleteProduct}
+                          className="ml-auto text-red-500 hover:text-red-700 transition"
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      )}
                     </li>
                   ))}
                 </ul>
