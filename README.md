@@ -14,5 +14,8 @@
 * React(Next.js)
 * Firebase
 * Tailwind CSS
+* JavaScript
+* JSX
+* Zustand
 
 ## Опублікований продукт
