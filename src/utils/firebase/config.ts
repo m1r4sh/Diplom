@@ -9,12 +9,13 @@ import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAeHK3zIPdkY1Zqtd4xiSPqUgMNp52Ys20",
-  authDomain: "store-2bd42.firebaseapp.com",
-  projectId: "store-2bd42",
-  storageBucket: "store-2bd42.appspot.com",
-  messagingSenderId: "3150675727",
-  appId: "1:3150675727:web:6b49a654629d3685e0887a",
+  apiKey: "AIzaSyA6wsLrSE3SfqE0R-CN1NAI-1b8_7QdLac",
+  authDomain: "motoshop-87cd3.firebaseapp.com",
+  projectId: "motoshop-87cd3",
+  storageBucket: "motoshop-87cd3.appspot.com",
+  messagingSenderId: "725994061627",
+  appId: "1:725994061627:web:fd88e5569999085b47811e",
+  measurementId: "G-R2CWDSET37"
 };
 
 const app = initializeApp(firebaseConfig);
