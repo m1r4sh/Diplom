@@ -49,7 +49,7 @@ const AboutUs = () => {
         {/* Contact Section */}
         <section className="bg-white shadow-lg rounded-lg p-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            Зв'яжіться з нами
+            Зв&apos;яжіться з нами
           </h2>
         </section>
       </div>
