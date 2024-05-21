@@ -3,6 +3,7 @@ import { persist } from "zustand/middleware";
 import { Product } from "@/types";
 
 interface CartItem extends Product {
+  categoryId?: any;
   quantity: number;
 }
 
