@@ -7,6 +7,7 @@ export interface Product {
   imageUrl: string;
   colors: string[];
   sizes: string[];
+  quantity: number;
 }
 
 export interface Category {
