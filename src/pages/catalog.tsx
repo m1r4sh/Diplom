@@ -60,7 +60,8 @@ const Catalog = () => {
           productsData = productsSnapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
-          })) as Product[];
+            categoryId: categoryDoc.id, // Pass category ID for each product
+          })) as any[];
         } else {
           const categoriesSnapshot = await getDocs(categoriesRef);
           for (const categoryDoc of categoriesSnapshot.docs) {
@@ -73,6 +74,7 @@ const Catalog = () => {
               ...productsSnapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data(),
+                categoryId: categoryDoc.id, // Pass category ID for each product
               }))
             );
           }
