@@ -1,9 +1,11 @@
 import useCartStore from "@/store/useCartStore";
+import useUser from "@/store/user.store";
 import { Product } from "@/types";
 import React from "react";
 import { CiShoppingCart } from "react-icons/ci";
 import { FaMinus, FaPlus } from "react-icons/fa";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const ProductSummaryCard = ({ product }: { product: Product }) => {
   const { items, addItem, incrementItem, decrementItem } = useCartStore(
     (state) => ({
@@ -15,7 +17,19 @@ const ProductSummaryCard = ({ product }: { product: Product }) => {
   );
 
   const cartItem = items.find((item) => item.id === product.id);
+  const user = useUser();
 
+  const handleAddToCart = (product: any) => {
+    const isLoggedIn = user.user;
+
+    if (!isLoggedIn) {
+      toast.error(`Будь ласка, увійдіть, щоб додати товари в кошик..`);
+
+      return;
+    }
+
+    addItem(product);
+  };
   return (
     <div
       className="flex flex-col gap-3 border-b pb-3 border-gray"
@@ -52,7 +66,7 @@ const ProductSummaryCard = ({ product }: { product: Product }) => {
         ) : (
           <button
             className="mt-auto flex items-center gap-2 bg-black text-white hover:text-black px-4 py-2 rounded-lg hover:bg-gray transition-colors duration-300"
-            onClick={() => addItem(product)}
+            onClick={() => handleAddToCart(product)}
           >
             Добавити в корзину
             <CiShoppingCart size={25} />
@@ -60,6 +74,7 @@ const ProductSummaryCard = ({ product }: { product: Product }) => {
         )}
       </div>
       <div className="flex items-end justify-between"></div>
+      <ToastContainer />
     </div>
   );
 };
