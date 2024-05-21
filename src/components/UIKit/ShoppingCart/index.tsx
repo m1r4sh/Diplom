@@ -9,9 +9,17 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+
 import useCartStore from "@/store/useCartStore";
 import { FiShoppingCart } from "react-icons/fi";
-import { collection, addDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  doc,
+  getDocs,
+  updateDoc,
+  getDoc,
+} from "firebase/firestore";
 import { db } from "@/utils/firebase/config";
 import { RxCrossCircled } from "react-icons/rx";
 import useUser from "@/store/user.store";
@@ -54,10 +62,39 @@ const ShoppingCart = () => {
         createdAt: new Date(),
         status: "pending",
       };
+
+      // Add the order to the database
       await addDoc(collection(db, "orders"), order);
+
+      // Update the quantity of each item in the cart and in categories
+
+      for (const item of items) {
+        const productDocRef = doc(
+          db,
+          `categories/${item.categoryId}/products`,
+          item.id
+        );
+        const productDoc = await getDoc(productDocRef);
+
+        if (productDoc.exists()) {
+          const productData = productDoc.data();
+          const newQuantity = productData.quantity - item.quantity;
+
+          await updateDoc(productDocRef, {
+            quantity: newQuantity,
+          });
+        }
+
+        // Decrease the quantity in the cart
+        decrementItem(item.id);
+      }
+
+      // Clear the cart
       clearCart();
+
+      // Show success message
       setShowForm(false);
-      showToast("Очікуйте, з вами скоро зв'яжаться!", {
+      showToast("Очікуйте, з вами скоро зв'яжуться!", {
         type: "success",
         autoClose: 1000,
       });
