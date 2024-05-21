@@ -1,5 +1,14 @@
+// CreateProduct.js
 import React, { useState, useEffect } from "react";
-import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useRouter } from "next/navigation";
 import { db, storage } from "@/utils/firebase/config";
@@ -29,6 +38,7 @@ const CreateProduct = () => {
     imageUrl: "",
     colors: [] as string[],
     sizes: [] as string[],
+    quantity: 0,
   });
   const [image, setImage] = useState<File | null>(null);
   const router = useRouter();
@@ -122,6 +132,7 @@ const CreateProduct = () => {
       await addDoc(collection(db, `categories/${categoryId}/products`), {
         ...product,
         price: parseFloat(product.price),
+        quantity: +product.quantity,
         imageUrl,
         colors: selectedColors,
         sizes: selectedSizes,
@@ -194,6 +205,19 @@ const CreateProduct = () => {
               type="number"
               name="price"
               value={product.price}
+              onChange={handleProductChange}
+              className="block w-full bg-blue-50 border border-blue-300 rounded-md py-2 px-4 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-lg font-medium text-black mb-2">
+              Quantity {/* Added quantity field */}
+            </label>
+            <input
+              type="number"
+              name="quantity"
+              value={product.quantity}
               onChange={handleProductChange}
               className="block w-full bg-blue-50 border border-blue-300 rounded-md py-2 px-4 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               required
