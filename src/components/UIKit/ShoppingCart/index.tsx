@@ -9,7 +9,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-
 import useCartStore from "@/store/useCartStore";
 import { FiShoppingCart } from "react-icons/fi";
 import {
@@ -24,8 +23,10 @@ import { db } from "@/utils/firebase/config";
 import { RxCrossCircled } from "react-icons/rx";
 import useUser from "@/store/user.store";
 import { useToast } from "@/providers/ToastProvider";
+import { useRouter } from "next/navigation";
 
 const ShoppingCart = () => {
+  const { push } = useRouter();
   const { items, incrementItem, decrementItem, removeItem, clearCart } =
     useCartStore((state) => ({
       items: state.items,
@@ -37,78 +38,28 @@ const ShoppingCart = () => {
 
   const user = useUser((state) => state.user);
   const showToast = useToast();
-
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const handleCheckout = () => {
+  const handleCheckout = (e: any) => {
     if (!user) {
       showToast("Please sign in to checkout.", { type: "error" });
       return;
     }
-    setShowForm(true);
-  };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    try {
-      const order = {
-        userId: user?.uid,
-        items,
-        name,
-        phoneNumber,
-        createdAt: new Date(),
-        status: "pending",
-      };
-
-      // Add the order to the database
-      await addDoc(collection(db, "orders"), order);
-
-      // Update the quantity of each item in the cart and in categories
-
-      for (const item of items) {
-        const productDocRef = doc(
-          db,
-          `categories/${item.categoryId}/products`,
-          item.id
-        );
-        const productDoc = await getDoc(productDocRef);
-
-        if (productDoc.exists()) {
-          const productData = productDoc.data();
-          const newQuantity = productData.quantity - item.quantity;
-
-          await updateDoc(productDocRef, {
-            quantity: newQuantity,
-          });
-        }
-
-        // Decrease the quantity in the cart
-        decrementItem(item.id);
-      }
-
-      // Clear the cart
-      clearCart();
-
-      // Show success message
-      setShowForm(false);
-      showToast("Очікуйте, з вами скоро зв'яжуться!", {
-        type: "success",
-        autoClose: 1000,
-      });
-    } catch (error) {
-      console.error("Error adding order: ", error);
-      showToast("Failed to place the order. Please try again.", {
-        type: "error",
-      });
-    }
+    push("/checkout");
+    setIsDrawerOpen(false); // Close the drawer
+    return;
   };
 
   return (
-    <Drawer>
-      <DrawerTrigger className="relative text-black px-4 py-2 flex items-center rounded-lg hover:bg-blue-600 transition duration-300">
+    <Drawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+      <DrawerTrigger
+        className="relative text-black px-4 py-2 flex items-center rounded-lg hover:bg-blue-600 transition duration-300"
+        onClick={() => setIsDrawerOpen(true)}
+      >
         <FiShoppingCart size={25} />
         {items.length > 0 && (
           <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">
@@ -170,10 +121,7 @@ const ShoppingCart = () => {
         {items.length > 0 ? (
           <DrawerFooter className="flex justify-end mt-6">
             {showForm ? (
-              <form
-                onSubmit={handleFormSubmit}
-                className="w-full flex flex-col space-y-4"
-              >
+              <form className="w-full flex flex-col space-y-4">
                 <input
                   type="text"
                   value={name}
@@ -205,7 +153,10 @@ const ShoppingCart = () => {
           </DrawerFooter>
         ) : null}
         <DrawerClose className="ml-4 absolute right-6">
-          <button className="bg-red-500 text-white px-2 py-2 rounded-lg hover:bg-red-600 transition duration-300">
+          <button
+            onClick={() => setIsDrawerOpen(false)}
+            className="bg-red-500 text-white px-2 py-2 rounded-lg hover:bg-red-600 transition duration-300"
+          >
             <RxCrossCircled size={25} />
           </button>
         </DrawerClose>

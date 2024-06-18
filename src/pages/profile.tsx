@@ -3,11 +3,21 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/utils/firebase/config";
+import {
+  FaBox,
+  FaTruck,
+  FaRegCalendarAlt,
+  FaMoneyBill,
+  FaCity,
+  FaGlobe,
+  FaUser,
+  FaBuilding,
+} from "react-icons/fa";
 
 const Profile = () => {
   const { user } = useUser();
   const [isMounted, setIsMounted] = useState(false);
-  const [orders, setOrders] = useState<any>([]);
+  const [orders, setOrders] = useState<any[]>([]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -39,6 +49,7 @@ const Profile = () => {
   if (!isMounted || !user) {
     return null;
   }
+  console.log(orders);
 
   const statusColors: { [key: string]: string } = {
     waiting: "bg-yellow-100 text-yellow-800",
@@ -79,9 +90,11 @@ const Profile = () => {
                 <div className="flex justify-between items-start mb-6 sm:flex-wrap">
                   <div>
                     <p className="text-xl font-semibold sm:text-[15px] text-[#1a202c]">
-                      Order ID: {order.id}
+                      Номер Замовлення: {order.id}
                     </p>
-                    <p className="text-[#4a5568]">Phone: {order.phoneNumber}</p>
+                    <p className="text-[#4a5568]">
+                      Телефон: {order.phoneNumber}
+                    </p>
                     <p
                       className={`text-sm font-medium ${
                         statusColors[order?.status] ||
@@ -95,21 +108,74 @@ const Profile = () => {
                         : "Продано"}
                     </p>
                   </div>
-                  <div className="text-[#4a5568]">
-                    {new Date(
-                      order.createdAt.seconds * 1000
-                    ).toLocaleDateString("uk-UA")}
+                  <div className="text-[#4a5568] flex items-center space-x-2">
+                    <FaRegCalendarAlt />
+                    <span>
+                      {new Date(
+                        order.createdAt.seconds * 1000
+                      ).toLocaleDateString("uk-UA")}
+                    </span>
                   </div>
                 </div>
                 <div className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="flex items-center space-x-2">
+                      <FaMoneyBill className="text-[#1a202c]" />
+                      <span className="text-[#4a5568]">
+                        Спосіб оплати : {order.paymentMethod}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <FaBuilding className="text-[#1a202c]" />
+                      <span className="text-[#4a5568]">
+                        Назва компанії : {order.companyName}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <FaCity className="text-[#1a202c]" />
+                      <span className="text-[#4a5568]">
+                        Місто: {order.city}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <FaTruck className="text-[#1a202c]" />
+                      <span className="text-[#4a5568]">
+                        Метод Доставки : {order.deliveryMethod}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <FaGlobe className="text-[#1a202c]" />
+                      <span className="text-[#4a5568]">
+                        Країна: {order.country}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <FaUser className="text-[#1a202c]" />
+                      <span className="text-[#4a5568]">Ім'я: {order.name}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <FaRegCalendarAlt className="text-[#1a202c]" />
+                      <span className="text-[#4a5568]">
+                        ІПН : {order.vatNumber}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <FaRegCalendarAlt className="text-[#1a202c]" />
+                      <span className="text-[#4a5568]">
+                        Пошта: {order.email}
+                      </span>
+                    </div>
+                  </div>
                   {order.items.map((item: any, index: number) => (
                     <div
                       key={index}
                       className="flex items-center space-x-6 bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
                     >
-                      <div className="w-20 h-20 rounded-lg overflow-hidden">
+                      <div className="w-20 h-20 rounded-lg overflow-hidden flex items-center justify-center bg-gray-100">
                         <Image
-                          src={item.imageUrl}
+                          src={
+                            item.imageUrl || "https://via.placeholder.com/80"
+                          }
                           alt={item.title}
                           width={80}
                           height={80}
