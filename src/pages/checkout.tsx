@@ -240,7 +240,7 @@ const Checkout = () => {
                     <option value="IN">India</option>
                     <option value="BR">Brazil</option>
                     <option value="MX">Mexico</option>
-                    <option value="RU">Russia</option>
+                    <option value="UA">Ukraine</option>
                     <option value="ZA">South Africa</option>
                     <option value="NG">Nigeria</option>
                     <option value="KE">Kenya</option>
@@ -292,11 +292,6 @@ const Checkout = () => {
                     onChange={(e) => setCity(e.target.value)}
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                   >
-                    <option>San Francisco</option>
-                    <option value="NY">New York</option>
-                    <option value="LA">Los Angeles</option>
-                    <option value="CH">Chicago</option>
-                    <option value="HU">Houston</option>
                     <option value="KY">Київ</option>
                     <option value="KH">Харків</option>
                     <option value="OD">Одеса</option>
