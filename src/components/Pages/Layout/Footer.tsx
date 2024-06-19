@@ -5,10 +5,10 @@ const Footer = () => {
     <footer className="bg-[#1E3A8A] text-[#F9FAFB] py-12">
       <div className="w-full px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div className="mb-8 lg:mb-0">
-          <h2 className="text-2xl font-bold mb-6">RENTCARS</h2>
-          <p className="mb-4">25566 ХС 1, Полтава, Україна, 3600</p>
+          <h2 className="text-2xl font-bold mb-6">MOTOSHOP</h2>
+          <p className="mb-4">Полтава, Україна</p>
           <p>+098 4784 273 12</p>
-          <p>rentcars@gmail.com</p>
+          <p>motoshoppoltava@gmail.com</p>
         </div>
         <div className="lg:col-span-3">
           <h3 className="text-xl font-semibold mb-6">Follow Us</h3>
@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-[#F9FAFB] mt-12 pt-6 text-center">
-        <p>&copy; 2024 Rentcars, Всі права захищені</p>
+        <p>&copy; 2024 Motoshop, Дипломна робота</p>
       </div>
     </footer>
   );

@@ -15,7 +15,7 @@ const firebaseConfig = {
   storageBucket: "motoshop-87cd3.appspot.com",
   messagingSenderId: "725994061627",
   appId: "1:725994061627:web:fd88e5569999085b47811e",
-  measurementId: "G-R2CWDSET37"
+  measurementId: "G-R2CWDSET37",
 };
 
 const app = initializeApp(firebaseConfig);

@@ -32,6 +32,7 @@ const CreateProduct = () => {
   const [newCategory, setNewCategory] = useState("");
   const [product, setProduct] = useState({
     title: "",
+    brand: "",
     description: "",
     price: "",
     additionalInfo: "",
@@ -249,13 +250,25 @@ const CreateProduct = () => {
             className="block w-full bg-blue-50 border border-blue-300 rounded-md py-2 px-4 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           ></textarea>
         </div>
-
+        <div>
+          <label className="block text-lg font-medium text-black mb-2">
+            Бренд {/* Added quantity field */}
+          </label>
+          <input
+            type="text"
+            name="brand"
+            value={product.brand}
+            onChange={handleProductChange}
+            className="block w-full bg-blue-50 border border-blue-300 rounded-md py-2 px-4 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            required
+          />
+        </div>
         <ProductColorPicker
           onColorChange={handleColorChange}
           selectedColors={selectedColors}
         />
 
-        <div className="flex flex-col gap-3">
+        {/* <div className="flex flex-col gap-3">
           <h3 className="font-bold text-lg leading-6 text-black">Frame Size</h3>
           <div className="flex gap-3 flex-wrap">
             {sizes.map(({ size, outOfStock }) => (
@@ -276,7 +289,7 @@ const CreateProduct = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div>
           <label className="block text-lg font-medium text-black mb-2">

@@ -86,7 +86,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             ))}
           </div>
         </div>
-        <div className="flex items-center">
+        {/* <div className="flex items-center">
           <span className="font-medium">Розміри:</span>
           <div className="flex ml-2 gap-1 flex-wrap">
             {product?.sizes?.map((size: string, index: number) => (
@@ -98,11 +98,11 @@ const ProductCard = ({ product }: { product: Product }) => {
               </span>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
       {outOfStock ? null : (
         <>
-          <span className="font-medium">Кількість: {product.quantity}</span>
+          {/* <span className="font-medium">Кількість: {product.quantity}</span> */}
           <div className="flex items-center flex-col justify-between mt-auto">
             <div className="flex items-center">
               {cartItem ? (

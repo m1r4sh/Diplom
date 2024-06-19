@@ -10,12 +10,11 @@ const Banner = () => {
       <div className="container mx-auto flex flex-col lg:flex-row items-center px-6 lg:px-0">
         <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
           <h1 className="text-5xl font-extrabold text-gray-900 mb-4">
-            Discover and Shop for Motorcycles{" "}
-            <span className="text-blue">with Ease</span>
+          Шукайте і купуйте мотоцикли{" "}
+            <span className="text-blue">з комфортом!</span>
           </h1>
           <p className="text-black text-lg mb-8 max-w-[550px]">
-            Purchase motorcycles and motorcycle equipment effortlessly from our
-            online store, available on both iOS and Android devices.
+          У нас у продажу Ви зустрінете відмінні варіанти для початківців та мотоцикли, які не залишать байдужим справжнього професіонала, який точно знає, чого він хоче.
           </p>
           <div className="flex justify-center lg:justify-start">
             <Link
@@ -45,7 +44,7 @@ const Banner = () => {
           </div>
           <div>
             <div className="text-gray-600">Location</div>
-            <div className="font-semibold text-gray-900">Lviv, Ukraine</div>
+            <div className="font-semibold text-gray-900">Poltava, Ukraine</div>
           </div>
         </div>
         <div className="flex items-center space-x-4 mb-4 lg:mb-0 grow">
@@ -53,8 +52,8 @@ const Banner = () => {
             <CiCalendarDate size={35} />
           </div>
           <div>
-            <div className="text-gray-600">Pickup date</div>
-            <div className="font-semibold text-gray-900">Tue 15 Feb, 09:00</div>
+            <div className="text-gray-600">Графік роботи:</div>
+            <div className="font-semibold text-gray-900">З 09:00-19:00</div>
           </div>
         </div>
         <div className="flex items-center space-x-4 mb-4 lg:mb-0 grow">
@@ -62,8 +61,8 @@ const Banner = () => {
             <CiCalendarDate size={35} />
           </div>
           <div>
-            <div className="text-gray-600">Return date</div>
-            <div className="font-semibold text-gray-900">Thu 16 Feb, 11:00</div>
+            <div className="text-gray-600">Термін доставки:</div>
+            <div className="font-semibold text-gray-900">1-3 дні</div>
           </div>
         </div>
         {/* <button className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300">

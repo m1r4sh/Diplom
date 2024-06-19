@@ -41,10 +41,10 @@ const ProductSection = () => {
     <div className="py-16">
       <div className="container mx-auto text-center mb-12">
         <span className="bg-blue-100 text-blue-600 font-bold py-1 px-3 rounded-full text-sm mb-4 inline-block">
-          POPULAR PRODUCTS
+          ПОПУЛЯРНІ ТОВАРИ
         </span>
         <h2 className="text-4xl font-extrabold text-gray-900">
-          Most popular motorcycle parts
+        Найпопулярніші моделів мотоциклів
         </h2>
       </div>
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -57,7 +57,7 @@ const ProductSection = () => {
           href="/catalog"
           className="bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray transition duration-300 border-2 border-[#E0E0E0]"
         >
-          Show all products →
+          Показати всі товари →
         </Link>
       </div>
     </div>

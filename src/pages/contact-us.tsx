@@ -6,20 +6,20 @@ const ContactUs = () => {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
-          Contact Us
+          Наші контакти
         </h2>
         <div className="space-y-6">
           <div className="flex items-center justify-center space-x-2">
             <FaPhone className="text-blue-500" />
-            <span className="text-gray-700">+123 456 7890</span>
+            <span className="text-gray-700">+0663116714</span>
           </div>
           <div className="flex items-center justify-center space-x-2">
             <FaEnvelope className="text-green-500" />
-            <span className="text-gray-700">info@example.com</span>
+            <span className="text-gray-700">motoshoppoltava@gmail.com</span>
           </div>
           <div className="flex items-center justify-center space-x-2">
             <FaMapMarkerAlt className="text-red-500" />
-            <span className="text-gray-700">123 Main St, City, Country</span>
+            <span className="text-gray-700">Poltava, Ukraine</span>
           </div>
           <form className="space-y-4">
             <input
@@ -40,7 +40,7 @@ const ContactUs = () => {
               type="submit"
               className="w-full bg-blue text-white px-4 py-2 rounded-lg hover:bg-blue transition-colors duration-300"
             >
-              Send Message
+              Відправити повідомлення
             </button>
           </form>
         </div>

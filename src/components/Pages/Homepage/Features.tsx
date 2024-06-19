@@ -18,11 +18,11 @@ const Features = () => {
           <div className="flex flex-col items-start">
             <div className="bg-[#1572D3] rounded-lg p-4">
               <span className="bg-blue-100 text-blue-600 font-bold py-1 px-3 rounded-full text-sm text-white uppercase inline-block">
-                WHY CHOOSE US
+               Чому обирають нас?
               </span>
             </div>
             <h2 className="text-4xl font-extrabold text-gray-900 my-4">
-              Experience the Best with Our Motorcycle Deals
+            Відчуйте найкраще завдяки нашим пропозиціям з мотоциклами.
             </h2>
             <ul className="space-y-6">
               <li className="flex items-start">
@@ -34,11 +34,10 @@ const Features = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Unbeatable Prices
+                    Низькі ціни
                   </h3>
                   <p className="text-gray-600">
-                    Found a lower price? We&#39;ll refund you 100% of the
-                    difference.
+                  Знайшли нижчу ціну? Ми повернемо вам 100% різниці.
                   </p>
                 </div>
               </li>
@@ -51,11 +50,10 @@ const Features = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Skilled Mechanics
+                  Кваліфіковані спеціалісти
                   </h3>
                   <p className="text-gray-600">
-                    Need assistance? Our team of experienced mechanics is here
-                    to help.
+                  Потрібна допомога? Наша команда досвідчених фахівців завжди на зв'язку, щоб допомогти.
                   </p>
                 </div>
               </li>
@@ -68,11 +66,10 @@ const Features = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Fast Delivery
+                  Швидка доставка
                   </h3>
                   <p className="text-gray-600">
-                    Order anytime and get your motorcycle parts delivered
-                    quickly.
+                  Замовляйте в будь-який час і отримуйте швидку доставку товарів.
                   </p>
                 </div>
               </li>
@@ -85,11 +82,10 @@ const Features = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    24/7 Customer Support
+                  Підтримка клієнтів цілодобово, 7 днів на тиждень
                   </h3>
                   <p className="text-gray-600">
-                    Have questions? Our support team is available around the
-                    clock to assist you.
+                  Є питання? Наша служба підтримки доступна цілодобово для вашої допомоги.
                   </p>
                 </div>
               </li>

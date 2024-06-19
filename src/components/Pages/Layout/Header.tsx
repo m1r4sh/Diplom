@@ -72,7 +72,7 @@ const Header = () => {
             height={40}
             className="rounded-full"
           />
-          <span className="ml-3 text-xl font-semibold text-blue">Store</span>
+          <span className="ml-3 text-xl font-semibold text-blue">Motoshop</span>
         </Link>
         <nav className="flex space-x-8 ">
           <Link
