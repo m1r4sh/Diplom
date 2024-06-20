@@ -559,10 +559,10 @@ const Checkout = () => {
               </div>
             </div>
 
-            <div className="space-y-3">
+          <div className="space-y-3">
               <button
                 type="submit"
-                className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                className="flex w-full items-center justify-center rounded-lg bg-[#074fa5] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#074ea597] focus:outline-none focus:ring-4"
               >
                 Перейти до оплати
               </button>
@@ -570,11 +570,7 @@ const Checkout = () => {
               <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
                 Один або кілька товарів у вашому кошику вимагають облікового
                 запису.{" "}
-                <a
-                  href="#"
-                  title=""
-                  className="font-medium text-primary-700 underline hover:no-underline dark:text-primary-500"
-                >
+                <a href="#" title="" className="font-medium text-[#18293f] ">
                   Увійдіть або створіть обліковий запис зараз.
                 </a>
                 .
