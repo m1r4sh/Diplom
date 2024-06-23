@@ -22,9 +22,6 @@ const PaymentOptions = () => {
           <PaymentOptionItem key={option.id} name={option.name} />
         ))}
       </div>
-      <button className="text-[#074FA5] font-inter leading-[19.36px] text-left md:pl-10 md2:pl-0">
-        Більше інформації про оплату
-      </button>
     </div>
   );
 };

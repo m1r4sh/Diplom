@@ -44,10 +44,10 @@ const ProductSection = () => {
           ПОПУЛЯРНІ ТОВАРИ
         </span>
         <h2 className="text-4xl font-extrabold text-gray-900">
-        Найпопулярніші моделів мотоциклів
+          Найпопулярніші моделів мотоциклів
         </h2>
       </div>
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
         {products.slice(0, 4).map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}

@@ -147,7 +147,7 @@ const ShoppingCart = () => {
                 onClick={handleCheckout}
                 className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300"
               >
-                Checkout
+                Перейти до Оформлення
               </button>
             )}
           </DrawerFooter>

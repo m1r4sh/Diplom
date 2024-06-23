@@ -73,7 +73,7 @@ const ProductImage = ({ product }: { product: Product }) => {
       <ProductGallery product={product} />
       <div className="mt-6">
         <h2 className="text-2xl font-bold mb-4 text-[#333333]">
-          User Feedback
+          Зворотній зв'язок
         </h2>
         <div className="space-y-4 mb-6">
           {feedback.map((fb) => (
@@ -100,14 +100,15 @@ const ProductImage = ({ product }: { product: Product }) => {
         <textarea
           value={newFeedback}
           onChange={(e) => setNewFeedback(e.target.value)}
-          placeholder="Enter your feedback here"
+          placeholder="Введіть свій відгук тут
+"
           className="w-full p-3 border border-[#cccccc] rounded-lg mb-4 text-[#333333] placeholder-[#999999]"
         />
         <button
           onClick={handleFeedbackSubmit}
           className="bg-[#007bff] text-white px-4 py-2 rounded-lg hover:bg-[#0056b3] transition duration-300"
         >
-          Submit Feedback
+          Надіслати відгук
         </button>
       </div>
     </section>

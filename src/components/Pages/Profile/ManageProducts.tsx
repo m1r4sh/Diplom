@@ -9,15 +9,26 @@ import {
 } from "firebase/firestore";
 import { db } from "@/utils/firebase/config";
 import Image from "next/image";
+import moment from "moment";
 
 interface Order {
   id: string;
   items: any[];
   userId: string;
-  createdAt: string;
+  createdAt: {
+    seconds: number;
+    nanoseconds: number;
+  };
   status: string;
   name: string;
   phoneNumber: string;
+  vatNumber: string;
+  companyName: string;
+  city: string;
+  paymentMethod: string;
+  email: string;
+  deliveryMethod: string;
+  country: string;
 }
 
 interface User {
@@ -93,7 +104,7 @@ const ManageProducts = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-6 bg-gray-50">
       {orders.length === 0 ? (
         <p className="text-gray-600">No orders found.</p>
       ) : (
@@ -115,13 +126,27 @@ const ManageProducts = () => {
                   className="rounded-full object-cover"
                 />
               </div>
-              <div className="flex flex-col items-baseline">
+              <div className="flex flex-col">
                 <h3 className="text-lg font-semibold text-gray-900">
                   {users[order.userId]?.name || "Unknown User"}
                 </h3>
                 <p className="text-gray-600">{users[order.userId]?.email}</p>
                 <p className="text-gray-600">Phone: {order.phoneNumber}</p>
                 <p className="text-gray-600">Order ID: {order.id}</p>
+                <p className="text-gray-600">VAT Number: {order.vatNumber}</p>
+                <p className="text-gray-600">Company: {order.companyName}</p>
+                <p className="text-gray-600">City: {order.city}</p>
+                <p className="text-gray-600">Country: {order.country}</p>
+                <p className="text-gray-600">Payment: {order.paymentMethod}</p>
+                <p className="text-gray-600">
+                  Delivery: {order.deliveryMethod}
+                </p>
+                <p className="text-gray-600">
+                  Created At:{" "}
+                  {moment(order.createdAt.seconds * 1000).format(
+                    "MMMM Do YYYY, h:mm:ss a"
+                  )}
+                </p>
                 <p
                   className={`text-sm font-medium ${
                     statusColors[order.status] || "bg-gray-100 text-gray-800"
@@ -153,11 +178,20 @@ const ManageProducts = () => {
                     </h3>
                     <p className="text-gray-600">${item.price}</p>
                     <p className="text-gray-600">Quantity: {item.quantity}</p>
+                    <p className="text-gray-600">
+                      Description: {item.description}
+                    </p>
+                    <p className="text-gray-600">
+                      Sizes: {item.sizes.join(", ")}
+                    </p>
+                    <p className="text-gray-600">
+                      Colors: {item.colors.join(", ")}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="flex space-x-2">
+            <div className="flex flex-col space-y-2">
               <select
                 value={order.status}
                 onChange={(e) => handleStatusChange(order.id, e.target.value)}

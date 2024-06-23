@@ -4,9 +4,13 @@ import useUser from "@/store/user.store";
 import { db } from "@/utils/firebase/config";
 import { addDoc, collection, doc, getDoc, updateDoc } from "firebase/firestore";
 import { FaTrash } from "react-icons/fa";
+import { useToast } from "@/providers/ToastProvider";
+import { useRouter } from "next/navigation";
+import { ToastContainer } from "react-toastify";
 
 const Checkout = () => {
   const user = useUser((state) => state.user);
+  const { push } = useRouter();
 
   const { items, incrementItem, decrementItem, removeItem, clearCart } =
     useCartStore((state) => ({
@@ -29,6 +33,7 @@ const Checkout = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [cardExpiry, setCardExpiry] = useState("");
   const [cardCcv, setCardCcv] = useState("");
+  const showToast = useToast();
 
   const calculateTotal = () => {
     return items
@@ -80,6 +85,7 @@ const Checkout = () => {
         // Decrease the quantity in the cart
         decrementItem(item.id);
       }
+      showToast("Успішно прийнято", { type: "success" });
 
       // Clear the cart
       clearCart();
@@ -92,6 +98,7 @@ const Checkout = () => {
 
   return (
     <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
+      <ToastContainer />
       <form
         onSubmit={handleFormSubmit}
         className="mx-auto max-w-screen-xl px-4 2xl:px-0"
@@ -559,7 +566,7 @@ const Checkout = () => {
               </div>
             </div>
 
-          <div className="space-y-3">
+            <div className="space-y-3">
               <button
                 type="submit"
                 className="flex w-full items-center justify-center rounded-lg bg-[#074fa5] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#074ea597] focus:outline-none focus:ring-4"

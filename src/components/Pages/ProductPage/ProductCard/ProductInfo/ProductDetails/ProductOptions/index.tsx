@@ -7,7 +7,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({ colors, sizes }) => {
   return (
     <div className="flex flex-col gap-8 border-b pb-3 border-gray">
       <ProductColorPicker colors={colors} />
-      <ProductSizePicker sizes={sizes} />
+      {/* <ProductSizePicker sizes={sizes} /> */}
     </div>
   );
 };

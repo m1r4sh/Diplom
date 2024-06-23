@@ -10,11 +10,13 @@ const Banner = () => {
       <div className="container mx-auto flex flex-col lg:flex-row items-center px-6 lg:px-0">
         <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
           <h1 className="text-5xl font-extrabold text-gray-900 mb-4">
-          Шукайте і купуйте мотоцикли{" "}
+            Шукайте і купуйте мотоцикли{" "}
             <span className="text-blue">з комфортом!</span>
           </h1>
           <p className="text-black text-lg mb-8 max-w-[550px]">
-          У нас у продажу Ви зустрінете відмінні варіанти для початківців та мотоцикли, які не залишать байдужим справжнього професіонала, який точно знає, чого він хоче.
+            У нас у продажу Ви зустрінете відмінні варіанти для початківців та
+            мотоцикли, які не залишать байдужим справжнього професіонала, який
+            точно знає, чого він хоче.
           </p>
           <div className="flex justify-center lg:justify-start">
             <Link
@@ -22,11 +24,11 @@ const Banner = () => {
               className="hover:text-blue flex items-center gap-2 cursor-pointer border border-transparent hover:border-blue px-4 py-2 rounded-full transition duration-300"
             >
               <MdOutlineStorefront className="h-6 w-6" />
-              <span>Catalog</span>
+              <span>Каталог</span>
             </Link>
           </div>
         </div>
-        <div className="relative h-[400px] w-1/2">
+        <div className="relative h-[400px] w-full md:w-1/2">
           <Image
             src={
               "https://images.unsplash.com/photo-1572507424028-510c4c5284a6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

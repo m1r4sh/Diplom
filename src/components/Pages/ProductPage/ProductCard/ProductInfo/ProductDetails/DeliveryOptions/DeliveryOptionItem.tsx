@@ -43,9 +43,6 @@ const DeliveryOptionItem = ({
             {pickupTimeOnDesktop || pickupTime}
           </div>
         </div>
-        <button className="text-[#074FA5] font-inter text-[14px] leading-[16.8px] text-left">
-          Дивитись на мапі
-        </button>
       </div>
 
       <span
