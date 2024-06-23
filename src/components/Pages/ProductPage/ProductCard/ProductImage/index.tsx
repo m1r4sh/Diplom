@@ -73,7 +73,7 @@ const ProductImage = ({ product }: { product: Product }) => {
       <ProductGallery product={product} />
       <div className="mt-6">
         <h2 className="text-2xl font-bold mb-4 text-[#333333]">
-          Зворотній зв'язок
+          Зворотній зв&apos;язок
         </h2>
         <div className="space-y-4 mb-6">
           {feedback.map((fb) => (

@@ -186,7 +186,7 @@ const Checkout = () => {
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >
                     {" "}
-                    Ваше ім'я{" "}
+                    Ваше ім&apos;я{" "}
                   </label>
                   <input
                     type="text"

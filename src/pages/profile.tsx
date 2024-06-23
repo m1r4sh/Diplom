@@ -151,7 +151,9 @@ const Profile = () => {
                     </div>
                     <div className="flex items-center space-x-2">
                       <FaUser className="text-[#1a202c]" />
-                      <span className="text-[#4a5568]">Ім'я: {order.name}</span>
+                      <span className="text-[#4a5568]">
+                        Ім&apos;я: {order.name}
+                      </span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <FaRegCalendarAlt className="text-[#1a202c]" />

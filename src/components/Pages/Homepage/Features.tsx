@@ -18,11 +18,11 @@ const Features = () => {
           <div className="flex flex-col items-start">
             <div className="bg-[#1572D3] rounded-lg p-4">
               <span className="bg-blue-100 text-blue-600 font-bold py-1 px-3 rounded-full text-sm text-white uppercase inline-block">
-               Чому обирають нас?
+                Чому обирають нас?
               </span>
             </div>
             <h2 className="text-4xl font-extrabold text-gray-900 my-4">
-            Відчуйте найкраще завдяки нашим пропозиціям з мотоциклами.
+              Відчуйте найкраще завдяки нашим пропозиціям з мотоциклами.
             </h2>
             <ul className="space-y-6">
               <li className="flex items-start">
@@ -37,7 +37,7 @@ const Features = () => {
                     Низькі ціни
                   </h3>
                   <p className="text-gray-600">
-                  Знайшли нижчу ціну? Ми повернемо вам 100% різниці.
+                    Знайшли нижчу ціну? Ми повернемо вам 100% різниці.
                   </p>
                 </div>
               </li>
@@ -50,10 +50,11 @@ const Features = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-900">
-                  Кваліфіковані спеціалісти
+                    Кваліфіковані спеціалісти
                   </h3>
                   <p className="text-gray-600">
-                  Потрібна допомога? Наша команда досвідчених фахівців завжди на зв'язку, щоб допомогти.
+                    Потрібна допомога? Наша команда досвідчених фахівців завжди
+                    на зв&apos;язку, щоб допомогти.
                   </p>
                 </div>
               </li>
@@ -66,10 +67,11 @@ const Features = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-900">
-                  Швидка доставка
+                    Швидка доставка
                   </h3>
                   <p className="text-gray-600">
-                  Замовляйте в будь-який час і отримуйте швидку доставку товарів.
+                    Замовляйте в будь-який час і отримуйте швидку доставку
+                    товарів.
                   </p>
                 </div>
               </li>
@@ -82,10 +84,11 @@ const Features = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-900">
-                  Підтримка клієнтів цілодобово, 7 днів на тиждень
+                    Підтримка клієнтів цілодобово, 7 днів на тиждень
                   </h3>
                   <p className="text-gray-600">
-                  Є питання? Наша служба підтримки доступна цілодобово для вашої допомоги.
+                    Є питання? Наша служба підтримки доступна цілодобово для
+                    вашої допомоги.
                   </p>
                 </div>
               </li>
