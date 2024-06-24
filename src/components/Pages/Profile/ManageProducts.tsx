@@ -9,7 +9,6 @@ import {
 } from "firebase/firestore";
 import { db } from "@/utils/firebase/config";
 import Image from "next/image";
-import moment from "moment";
 
 interface Order {
   id: string;
@@ -141,12 +140,7 @@ const ManageProducts = () => {
                 <p className="text-gray-600">
                   Delivery: {order.deliveryMethod}
                 </p>
-                <p className="text-gray-600">
-                  Created At:{" "}
-                  {moment(order.createdAt.seconds * 1000).format(
-                    "MMMM Do YYYY, h:mm:ss a"
-                  )}
-                </p>
+              
                 <p
                   className={`text-sm font-medium ${
                     statusColors[order.status] || "bg-gray-100 text-gray-800"
